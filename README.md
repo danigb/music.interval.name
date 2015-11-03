@@ -20,8 +20,8 @@ name([1, 1, 0]) // => '2A'
 
 The returned string has the form: `number + quality` where:
 
-- number: the interval number. Positive means ascending interval, negative descending interval. Can't be 0.
-- quality: one or more letters of 'd', 'm', 'P', 'M', 'A' (dimished, minor, perfect, major, augmented)
+- [number](https://en.wikipedia.org/wiki/Interval_(music)#Number): the interval number. Positive means ascending interval, negative descending interval. Can't be 0.
+- [quality](https://en.wikipedia.org/wiki/Interval_(music)#Quality): one or more letters of 'd', 'm', 'P', 'M', 'A' (dimished, minor, perfect, major, augmented)
 
 To convert in the opposite direction see [music.interval.name.parse](https://github.com/danigb/music.interval.name.parse)
 
