@@ -1,0 +1,37 @@
+{
+  "name": "music.interval.name",
+  "version": "0.0.1",
+  "description": "Convert from array interval notation to short name interval notation",
+  "main": "index.js",
+  "scripts": {
+    "test": "vows --spec test/*.js",
+    "docs": "docme API.md",
+    "disc": "browserify --full-paths index.js | uglifyjs | discify > tmp/disc.html&& open tmp/disc.html",
+    "coverage": "istanbul cover vows test/*.js",
+    "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
+    "climate": "npm run coverage && npm run codeclimate",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=a042fc468c106361abd235991ab618e171b1bdb3cef73704c59aa9c30eb44e4d codeclimate-test-reporter < coverage/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danigb/music.interval.name.git"
+  },
+  "keywords": [
+    "music",
+    "interval",
+    "notation",
+    "shorthand",
+    "music.kit"
+  ],
+  "author": "danigb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danigb/music.interval.name/issues"
+  },
+  "homepage": "https://github.com/danigb/music.interval.name#readme",
+  "devDependencies": {
+    "vows": "^0.8.x"
+  },
+  "dependencies": {
+  }
+}
