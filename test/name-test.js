@@ -1,28 +1,32 @@
 var vows = require('vows')
 var assert = require('assert')
-var interval = require('../')
+var name = require('../')
 
 vows.describe('music.interval.name').addBatch({
   'edge cases': function () {
-    assert.equal(interval([1, -1, 0]), '2m')
-    assert.equal(interval([1, -1, 1]), '9m')
-    assert.equal(interval([6, 0, 0]), '7M')
-    assert.equal(interval([6, 0, -1]), '-2m')
-    assert.equal(interval([0, -1, -1]), '-8A')
-    assert.equal(interval([2, -1, -1]), '-6M')
-    assert.equal(interval([0, 1, -1]), '-8d')
-    assert.equal(interval([0, -1, -4]), '-29A')
+    assert.equal(name([1, -1, 0]), '2m')
+    assert.equal(name([1, -1, 1]), '9m')
+    assert.equal(name([6, 0, 0]), '7M')
+    assert.equal(name([6, 0, -1]), '-2m')
+    assert.equal(name([0, -1, -1]), '-8A')
+    assert.equal(name([2, -1, -1]), '-6M')
+    assert.equal(name([0, 1, -1]), '-8d')
+    assert.equal(name([0, -1, -4]), '-29A')
+  },
+  'cached': function () {
+    assert.equal(name([1, 0, 1]), '9M')
+    assert.equal(name([1, 0, 1]), '9M')
   },
   'without octaves': function () {
-    assert.equal(interval([1, -1, null]), '2m')
-    assert.equal(interval([6, 1, null]), '7A')
-    assert.equal(interval([7, 1, null]), '1A')
-    assert.equal(interval([9, -1, null]), '3m')
-    assert.equal(interval([3, -1, null]), '4d')
+    assert.equal(name([1, -1, null]), '2m')
+    assert.equal(name([6, 1, null]), '7A')
+    assert.equal(name([7, 1, null]), '1A')
+    assert.equal(name([9, -1, null]), '3m')
+    assert.equal(name([3, -1, null]), '4d')
   },
   'malformed': function () {
-    assert.equal(interval(null), null)
-    assert.equal(interval([1, 2]), null)
-    assert.equal(interval('blah'), null)
+    assert.equal(name(null), null)
+    assert.equal(name([1, 2]), null)
+    assert.equal(name('blah'), null)
   }
 }).export(module)

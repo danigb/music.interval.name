@@ -12,9 +12,16 @@ A tiny (658 bytes minified) function to convert from [array interval notation](h
 
 ```js
 var name = require('music.interval.name')
+name([0, 0, 0]) // => '1P'
 name([0, 0, 1]) // => '8P'
+name([0, 0, 2]) // => '15P'
 name([1, 1, 0]) // => '2A'
 ```
+
+The returned string has the form: `number + quality` where:
+
+- number: the interval number. Positive means ascending interval, negative descending interval. Can't be 0.
+- quality: one or more letters of 'd', 'm', 'P', 'M', 'A' (dimished, minor, perfect, major, augmented)
 
 To convert in the opposite direction see [music.interval.name.parse](https://github.com/danigb/music.interval.name.parse)
 
